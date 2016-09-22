@@ -22,12 +22,12 @@ class Words {
 //: ### variables the same type? If not, why?
 
 
-//: [EXPLAIN YOUR ANSWER HERE]
-
-
+//: They are different, the words passed into the init function are optionals because
+//: their values could be nil.
+    
 //: ## Q2: Variable Types and Function Types
-    func arePalindromes(_ words: [String]) -> Bool {
-        let reversedWords = words.map() {String($0.characters.reversed())}
+    static func arePalindromes(words: [String]) -> Bool {
+        let reversedWords = words.map(){String($0.characters.reverse())}
         let numElements = words.count
         
         for i in 0 ..< numElements {
@@ -35,19 +35,20 @@ class Words {
                 return false
             }
         }
+        return true
     }
 //: ### Why does the compiler dislike the **for loop**? Fix it.
 //: ### What else is wrong with this function? You may have to refer to (but **not**
 //: ### change) the code at the very bottom. Debug the function.
 
 
-//: [EXPLAIN YOUR ANSWER HERE]
-
+//: .reverse() not .reversed()
 
 //: ## Q3: More Functions and Object Initialization
-    class func isAnagram() -> Bool {
-        var countLetters : [Character : Int] //Line X
-        var lenA = self.wordA.characters.count
+     func isAnagram() -> Bool {
+        var countLetters = [Character : Int]() //Line X
+        var word1 = self.wordA
+        var lenA = word1.characters.count
         var lenB = self.wordB.characters.count
         
         if lenA != lenB {
@@ -81,7 +82,7 @@ class Words {
             }
         }
         
-        return nil
+        return true
     }
 //: ### What is the problem with declaring **countLetters** as we do in **Line X**,
 //: ### and then using it in **Line Y**? Fix it (by only changing **Line X**).
@@ -89,7 +90,8 @@ class Words {
 //: ### change) the code at the very bottom. Debug the function.
 
 
-//: [EXPLAIN YOUR ANSWER HERE]
+//: declare countLetters with = sign and end with ()
+//:
     
     
 }
